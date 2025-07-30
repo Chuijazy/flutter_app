@@ -8,4 +8,5 @@ abstract class AppColors {
   static Color errorColor = const Color(0xffFF3B30);
   static Color backgroundColor = const Color(0xffFFFFFF);
   static Color darkBackgroundColor = const Color(0xff000000);
+  static Color numberTextColor = const Color(0xff007AFF);
 }

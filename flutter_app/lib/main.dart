@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/auth_screens/auth_screen.dart';
 import 'package:flutter_app/screens/splash_and_onboard/onboarding.dart';
 import 'package:flutter_app/screens/splash_and_onboard/language_screen.dart';
 import 'package:flutter_app/screens/splash_and_onboard/splash_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/language': (context) => const LanguageScreen(),
         '/onboarding': (context) => const Onboarding(),
+        '/auth': (context) => const AuthScreen(),
       },
     );
   }

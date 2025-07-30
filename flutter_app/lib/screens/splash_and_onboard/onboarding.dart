@@ -38,6 +38,7 @@ class _OnboardingScreenState extends State<Onboarding> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: PageView.builder(
         controller: _controller,
         onPageChanged: (index) {
