@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:flutter_app/core/app_colors.dart';
-import 'package:flutter_app/features/onboarding.dart';
+import 'package:flutter_app/screens/splash_and_onboard/onboarding.dart';
+import 'package:flutter_app/screens/splash_and_onboard/language_screen.dart';
+import 'package:flutter_app/screens/splash_and_onboard/splash_screen.dart';
 
-void main() {
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -13,16 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: AnimatedSplashScreen(
-        duration: 3000,
-        splash: LinearProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(AppColors.mainColor),
-          backgroundColor: AppColors.darkBackgroundColor,
-        ),
-        nextScreen: Onboarding(),
-        splashTransition: SplashTransition.scaleTransition,
-        backgroundColor: Colors.white,
-      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/language': (context) => const LanguageScreen(),
+        '/onboarding': (context) => const Onboarding(),
+      },
     );
   }
 }
